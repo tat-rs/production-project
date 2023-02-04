@@ -1,11 +1,25 @@
-import Counter from './components/Counter';
-import './index.scss';
+import { Suspense } from 'react';
+import { Route, Routes } from 'react-router';
+import { Link } from 'react-router-dom';
+import { AboutPageAsync } from './pages/AboutPage/AboutPageAsync';
+import { MainPageAsync } from './pages/MainPage/MainPageAsync';
+import { useTheme } from './theme/useTheme';
+import './styles/index.scss';
 
 function App() {
+  const {theme, toggleTheme} = useTheme();
+
   return (
-    <div className='app'>
-      sdfsgerges
-      <Counter />
+    <div className={`app ${theme}`}>
+      <button type='button' onClick={toggleTheme}>TOGGLE</button>
+      <Link to='/'>Главная</Link>
+      <Link to='/about'>About</Link>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path='/' element={<MainPageAsync />} />
+          <Route path='/about' element={<AboutPageAsync />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }
