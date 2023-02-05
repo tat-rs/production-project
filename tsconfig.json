@@ -12,6 +12,10 @@
     "allowJs": true,
     //определяет какой импорт будет
     "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    },
     //позволяет работать с пакетами, которые исп-ют common js как с обычными пакетами с помощью import
     "esModuleInterop": true,
     // если библиотека не имеет default import, то при true работают обычные ипорты без * as
