@@ -3,7 +3,6 @@ import LightIcon from 'shared/assets/icons/theme-icon-light.svg';
 import DarkIcon from 'shared/assets/icons/theme-icon-dark.svg';
 import { Button } from 'shared/ui';
 import { ThemeButton } from 'shared/ui/Button/Button';
-import styles from './ThemeSwitcher.module.scss';
 
 
 function ThemeSwitcher() {
