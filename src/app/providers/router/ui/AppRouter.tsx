@@ -8,15 +8,17 @@ function AppRouter() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path='/' element={<MainPage />} />
-          <Route path='/about' element={<AboutPage />} />
           {
-            Object.values(routerConfig).map(({path, element}) => {
+            Object.values(routerConfig).map(({path, element}) => (
               <Route
                 key={path}
                 path={path}
-                element={element} />
-            })
+                element={
+                  <div className='app__wrapper'>
+                    {element}
+                  </div>
+                } />
+            ))
           }
         </Routes>
       </Suspense>
