@@ -5,7 +5,7 @@ function AboutPage() {
 
   return (
     <div>
-      {t('О сайте')}
+      {t('О сайте', {ns: 'about'})}
     </div>
   );
 }

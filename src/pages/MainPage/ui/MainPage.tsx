@@ -5,7 +5,7 @@ function MainPage() {
 
   return (
     <div>
-      {t('Главная страница')}
+      {t('Главная страница', {ns: 'main'})}
     </div>
   );
 }
