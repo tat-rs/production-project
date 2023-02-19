@@ -8,14 +8,14 @@ function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
 
   function onToggle() {
-    setCollapsed(prev => !prev);
+    setCollapsed((prev) => !prev);
   }
 
   return (
-    <div className={classNames(styles.sidebar, {[styles.collapsed]: collapsed}, [])}>
+    <div className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [])}>
       <button
         className={styles.toggle}
-        type='button'
+        type="button"
         onClick={onToggle}
       >
         toggle

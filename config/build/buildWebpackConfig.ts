@@ -8,12 +8,12 @@ import { BuildOptions } from './types/config';
 export function buildWebpackConfig(options: BuildOptions) {
   const { mode, paths, isDev } = options;
   const config: webpack.Configuration = {
-    mode: mode,
+    mode,
     entry: paths.entry,
     output: {
       filename: '[name].[contenthash].js',
       path: paths.build,
-      clean: true
+      clean: true,
     },
     devtool: isDev ? 'inline-source-map' : undefined,
     devServer: isDev ? BuildDevServer(options) : undefined,

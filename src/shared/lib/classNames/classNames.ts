@@ -11,6 +11,7 @@ export function classNames(cls: string, mods?: Mods, additional?: string[]):stri
     cls,
     ...additional.filter(Boolean),
     Object.entries(mods)
-    .reduce((clss, [key, value]) => !!value ? clss = [...clss, key] : clss, [])
-  ].join(' ')
+      .filter(([className, value]) => Boolean(value))
+      .map(([className]) => className),
+  ].join(' ');
 }

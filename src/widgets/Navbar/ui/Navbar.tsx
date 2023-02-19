@@ -6,19 +6,19 @@ export interface NavbarProps {
   className?: string;
 }
 
-export function Navbar({className}: NavbarProps) {
+export function Navbar({ className }: NavbarProps) {
   return (
     <nav className={classNames(styles.navbar, {}, [className])}>
       <AppLink
-        to='/'
+        to="/"
         theme={AppLinkTheme.SECONDARY}
       >
         Главная
       </AppLink>
       <AppLink
-        to='/about'
+        to="/about"
         theme={AppLinkTheme.SECONDARY}
-        >
+      >
         About
       </AppLink>
     </nav>

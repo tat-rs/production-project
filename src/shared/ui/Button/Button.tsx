@@ -19,6 +19,7 @@ function Button({
 }: ButtonProps) {
   return (
     <button
+      type="button"
       className={classNames(styles.button, {}, [className, styles[theme]])}
       {...otherProps}
     >

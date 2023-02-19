@@ -6,9 +6,9 @@ import styles from './LanguageSwitcher.module.scss';
 function LanguageSwitcher() {
   const { t, i18n } = useTranslation();
 
-  function languageChange() {
-    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
-  }
+  const languageChange = () => {
+    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+  };
 
   return (
     <Button

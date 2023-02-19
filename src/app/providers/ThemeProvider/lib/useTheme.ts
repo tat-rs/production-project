@@ -7,7 +7,7 @@ interface UseThemeResult {
 }
 
 export function useTheme(): UseThemeResult {
-  const {theme, setTheme} = useContext(ThemeContext);
+  const { theme, setTheme } = useContext(ThemeContext);
 
   function toggleTheme() {
     const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
@@ -17,6 +17,6 @@ export function useTheme(): UseThemeResult {
 
   return {
     theme,
-    toggleTheme
-  }
+    toggleTheme,
+  };
 }
