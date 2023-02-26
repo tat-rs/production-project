@@ -12,8 +12,11 @@ function Sidebar() {
   }
 
   return (
-    <div className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [])}>
+    <div
+      data-testid='sidebar'
+      className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [])}>
       <button
+        data-testid='sidebar-toggle'
         className={styles.toggle}
         type="button"
         onClick={onToggle}
