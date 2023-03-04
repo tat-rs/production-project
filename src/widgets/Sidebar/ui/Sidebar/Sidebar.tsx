@@ -13,13 +13,15 @@ function Sidebar() {
 
   return (
     <div
-      data-testid='sidebar'
-      className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [])}>
+      data-testid="sidebar"
+      className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [])}
+    >
       <button
-        data-testid='sidebar-toggle'
+        data-testid="sidebar-toggle"
         className={styles.toggle}
         type="button"
         onClick={onToggle}
+      // eslint-disable-next-line i18next/no-literal-string
       >
         toggle
       </button>
