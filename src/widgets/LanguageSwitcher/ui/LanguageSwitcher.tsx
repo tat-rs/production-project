@@ -1,10 +1,16 @@
 import { useTranslation } from 'react-i18next';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/Button/Button';
 import styles from './LanguageSwitcher.module.scss';
 
-function LanguageSwitcher() {
-  const { t, i18n } = useTranslation();
+export interface LanguageSwitcherProps {
+  className?: string,
+  short?: boolean
+}
+
+function LanguageSwitcher({ className, short }: LanguageSwitcherProps) {
+  const { t, i18n } = useTranslation('translation');
 
   const languageChange = () => {
     i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
@@ -12,11 +18,11 @@ function LanguageSwitcher() {
 
   return (
     <Button
-      className={styles.switcher}
+      className={classNames(styles.switcher, {}, [className])}
       theme={ButtonTheme.CLEAR}
       onClick={languageChange}
     >
-      {t('Язык')}
+      {t(short ? 'Язык сокращено' : 'Язык', { ns: 'translation' })}
     </Button>
   );
 }

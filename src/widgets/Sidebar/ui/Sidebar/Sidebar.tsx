@@ -1,13 +1,19 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui';
+import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import MainPageIcon from 'shared/assets/icons/main-page-icon.svg';
+import AboutPageIcon from 'shared/assets/icons/about-page-icon.svg';
+import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import styles from './Sidebar.module.scss';
 
 function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
+  const { t } = useTranslation();
 
   function onToggle() {
     setCollapsed((prev) => !prev);
@@ -29,9 +35,27 @@ function Sidebar() {
       >
         {collapsed ? '>' : '<'}
       </Button>
+      <div className={styles.items}>
+        <AppLink
+          to={RoutePath.main}
+          theme={AppLinkTheme.SECONDARY}
+          className={styles.link}
+        >
+          <MainPageIcon className={styles.icon} />
+          <span className={styles.textLink}>{t('Главная страница')}</span>
+        </AppLink>
+        <AppLink
+          to={RoutePath.about}
+          theme={AppLinkTheme.SECONDARY}
+          className={styles.link}
+        >
+          <AboutPageIcon className={styles.icon} />
+          <span className={styles.textLink}>{t('О сайте')}</span>
+        </AppLink>
+      </div>
       <div className={styles.switcher}>
         <ThemeSwitcher />
-        <LanguageSwitcher />
+        <LanguageSwitcher short={collapsed} />
       </div>
     </div>
   );
