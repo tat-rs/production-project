@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Button } from 'shared/ui';
+import { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import styles from './Sidebar.module.scss';
@@ -16,15 +18,17 @@ function Sidebar() {
       data-testid="sidebar"
       className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [])}
     >
-      <button
+      <Button
         data-testid="sidebar-toggle"
         className={styles.toggle}
         type="button"
-        onClick={onToggle}
-      // eslint-disable-next-line i18next/no-literal-string
+        onClick={() => onToggle()}
+        theme={ButtonTheme.INVERTED_BACKGROUND}
+        square
+        size={ButtonSize.L}
       >
-        toggle
-      </button>
+        {collapsed ? '>' : '<'}
+      </Button>
       <div className={styles.switcher}>
         <ThemeSwitcher />
         <LanguageSwitcher />
