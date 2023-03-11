@@ -22,14 +22,26 @@ const Template: ComponentStory<typeof AppLink> = function (args) {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: 'Link',
+  children: 'Text',
   theme: AppLinkTheme.PRIMARY,
 };
-Primary.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  children: 'Link',
+  children: 'Text',
   theme: AppLinkTheme.SECONDARY,
 };
-Secondary.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const PrimaryDark = Template.bind({});
+PrimaryDark.args = {
+  children: 'Text',
+  theme: AppLinkTheme.PRIMARY,
+};
+PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const SecondaryDark = Template.bind({});
+SecondaryDark.args = {
+  children: 'Text',
+  theme: AppLinkTheme.SECONDARY,
+};
+SecondaryDark.decorators = [ThemeDecorator(Theme.DARK)];

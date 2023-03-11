@@ -17,10 +17,9 @@ const Template: ComponentStory<typeof ThemeSwitcher> = function <T extends objec
   );
 };
 
-export const Light = Template.bind({});
-Light.args = {};
-Light.decorators = [ThemeDecorator(Theme.LIGHT)];
-
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const LIGHT = Template.bind({});
+LIGHT.args = {};
