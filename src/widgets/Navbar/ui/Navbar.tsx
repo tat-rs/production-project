@@ -1,7 +1,10 @@
+/* eslint-disable max-len */
+/* eslint-disable i18next/no-literal-string */
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
-import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import Button, { ButtonTheme } from 'shared/ui/Button/Button';
+import Modal from 'shared/ui/Modal/Modal';
 import styles from './Navbar.module.scss';
 
 export interface NavbarProps {
@@ -10,20 +13,23 @@ export interface NavbarProps {
 
 export function Navbar({ className }: NavbarProps) {
   const { t } = useTranslation();
+  const [isAuth, setIsAuth] = useState(false);
+
+  const onToggleModal = useCallback(() => {
+    setIsAuth((prev) => !prev);
+  }, []);
+
   return (
     <nav className={classNames(styles.navbar, {}, [className])}>
-      <AppLink
-        to={RoutePath.main}
-        theme={AppLinkTheme.SECONDARY}
+      <Button
+        theme={ButtonTheme.INVERTED_BACKGROUND}
+        onClick={onToggleModal}
       >
-        {t('Главная страница')}
-      </AppLink>
-      <AppLink
-        to={RoutePath.about}
-        theme={AppLinkTheme.SECONDARY}
-      >
-        {t('О сайте')}
-      </AppLink>
+        {t('Войти')}
+      </Button>
+      <Modal isOpen={isAuth} onClose={onToggleModal}>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque libero aperiam nesciunt, magnam obcaecati quis sunt natus, mollitia soluta veniam, minus dolor pariatur culpa sit numquam ipsum voluptatum aliquid repudiandae in quos? Quae amet repellendus ipsa beatae nostrum in odit deleniti blanditiis eaque harum. Harum dolorum non nostrum saepe alias?
+      </Modal>
     </nav>
   );
 }

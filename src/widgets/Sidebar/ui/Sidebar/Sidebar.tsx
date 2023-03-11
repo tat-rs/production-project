@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui';
 import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
+import Button, { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import MainPageIcon from 'shared/assets/icons/main-page-icon.svg';
@@ -42,7 +41,7 @@ function Sidebar() {
           className={styles.link}
         >
           <MainPageIcon className={styles.icon} />
-          <span className={styles.textLink}>{t('Главная страница')}</span>
+          <span className={styles.textLink}>{t('Главная страница', { ns: 'main' })}</span>
         </AppLink>
         <AppLink
           to={RoutePath.about}
@@ -50,7 +49,7 @@ function Sidebar() {
           className={styles.link}
         >
           <AboutPageIcon className={styles.icon} />
-          <span className={styles.textLink}>{t('О сайте')}</span>
+          <span className={styles.textLink}>{t('О сайте', { ns: 'about' })}</span>
         </AppLink>
       </div>
       <div className={styles.switcher}>
