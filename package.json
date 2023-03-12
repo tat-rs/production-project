@@ -1,5 +1,5 @@
 {
-  "name": "production-project",
+  "name": "news-blog-react",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -23,15 +23,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tat-rs/production-project.git"
+    "url": "git+https://github.com/tat-rs/news-blog-react.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tat-rs/production-project/issues"
+    "url": "https://github.com/tat-rs/news-blog-react/issues"
   },
-  "homepage": "https://github.com/tat-rs/production-project#readme",
+  "homepage": "https://github.com/tat-rs/news-blog-react#readme",
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
